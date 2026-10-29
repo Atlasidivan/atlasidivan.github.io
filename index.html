@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org https://commons.wikimedia.org https://upload.wikimedia.org; connect-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Kaşgarlı Mahmud İnteraktif Dünya Atlası</title>
+<meta name="description" content="Dîvânu Lugâti't-Türk'teki 11. yüzyıl dünya haritası ile günümüz coğrafyasının karşılaştırmalı atlası.">
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-view="compare">
+<header class="top">
+  <h1>Kaşgarlı Mahmud Atlası <small>Dîvânu Lugâti't-Türk · 1072–1077</small></h1>
+  <nav class="tabs" role="tablist">
+    <button data-v="modern" role="tab">Modern Dünya</button>
+    <button data-v="circle" role="tab">Kaşgarlı'nın Haritası</button>
+    <button data-v="compare" role="tab">Karşılaştır</button>
+  </nav>
+</header>
+<main class="layout">
+  <aside class="panel left" id="left">
+    <details open><summary>Arama ve filtreler</summary>
+    <label>Boy ara <input id="qTribe" type="search" placeholder="Oğuz, Çiğil…"></label>
+    <label>Şehir / yer ara <input id="qPlace" type="search" placeholder="Balasagun, İtil…"></label>
+    <ul id="results" class="results"></ul>
+    <fieldset id="layers"><legend>Katmanlar</legend></fieldset>
+    <fieldset><legend>Kanıt</legend>
+      <label><input type="radio" name="ev" value="all" checked> Tümü</label>
+      <label><input type="radio" name="ev" value="source"> Kaynakta doğrudan (harita/metin)</label>
+      <label><input type="radio" name="ev" value="interp"> Tarihsel yorumlar</label>
+    </fieldset>
+    <details><summary>Tanımlanamayan yerler</summary><ul id="unknown" class="results"></ul></details>
+    </details>
+  </aside>
+  <section class="maps">
+    <div class="pane" id="paneModern">
+      <div id="modernMap"></div>
+      <button class="fs" data-fs="paneModern" title="Tam ekran">⛶</button>
+    </div>
+    <div class="pane" id="paneCircle">
+      <div class="circ-tools">
+        <button id="imgToggle">Türkçe açıklamalı</button>
+        <label><input type="checkbox" id="lblToggle" checked> Türkçe etiketler</label>
+        <button id="zIn">+</button><button id="zOut">−</button><button id="zReset">⟲</button>
+      </div>
+      <div class="circ" id="circ">
+        <div class="stage" id="stage">
+          <img id="circImg" alt="Kaşgarlı Mahmud'un dairesel dünya haritası" draggable="false">
+          <svg id="circSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+        <span class="dir n">Doğu ↑</span><span class="dir s">Batı ↓</span><span class="dir w">← Kuzey</span><span class="dir e">Güney →</span>
+      </div>
+      <p class="note" id="circNote"></p>
+      <button class="fs" data-fs="paneCircle" title="Tam ekran">⛶</button>
+    </div>
+  </section>
+  <aside class="panel right" id="info"><p class="muted">Bir yer veya boy seçin.</p></aside>
+</main>
+<div id="tip" class="tip" hidden></div>
+<script src="vendor/leaflet/leaflet.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
