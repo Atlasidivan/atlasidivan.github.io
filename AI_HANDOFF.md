@@ -2,7 +2,7 @@
 
 **Aktif geliştirici:** Claude (Claude Code)  
 **Son güncelleme:** 2026-10-29  
-**Aşama:** MVP çalışıyor; harita görselleri eklendi ve konumlar kalibre edildi. Yayın yapılmadı.
+**Aşama:** MVP çalışıyor; harita görselleri eklendi ve konumlar kalibre edildi. Yayında: https://mucahitdural-cyber.github.io/ka-garl-_mahmut/ (GitHub Pages, main / root).
 
 ## Tamamlanan
 - Statik iskelet: `index.html`, `css/style.css`, `js/app.js`, Leaflet yerel kopya (`vendor/leaflet`).
@@ -23,7 +23,7 @@ Görseller (`img/original.jpg` 1861×1573, `img/turkce.png` 1678×1596) kullanı
 1. Kullanıcıdan Chrome'da gerçek test geri bildirimi.
 2. İsteğe bağlı: daha yüksek çözünürlüklü Commons görselleri (`tools/gorselleri-indir.ps1`) gelirse koordinatlar normalize olduğundan aynen çalışır (çerçeve aynıysa).
 3. Kaynaklara sayfa numarası ekleme.
-4. Son test → GitHub Pages (en son).
+4. Yayın tamam; yeni değişiklikler `main`'e push edilince Pages otomatik güncellenir.
 
 ## Teknik kararlar
 - Tek veri dosyası; boy alanları merkez+yarıçap elips (kesin sınır çizilmez, kesikli).
@@ -49,7 +49,7 @@ Açılış, hover/tıklama iki yönlü eşleşme, arama, filtre, tam ekran, `#id
 `python -m http.server 8000` → http://localhost:8000 (kalibrasyon: `/?kalibre`)
 
 ## Git commit
-— (henüz depo yok)
+Depo: github.com/mucahitdural-cyber/ka-garl-_mahmut, dal `main`. Son commit için `git log -1`.
 
 ## Sonraki geliştiriciye not
-`features.json` dışında veri tutma. Konum düzeltirken `calibrated:true` yap. Yayına geçme.
+`features.json` dışında veri tutma. Konum düzeltirken `calibrated:true` yap. `main`'e push = canlı yayın; önce yerelde test et.
